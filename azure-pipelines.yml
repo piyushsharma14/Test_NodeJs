@@ -15,6 +15,20 @@ steps:
     npm run build
   displayName: 'Install dependencies and build'
 
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+  displayName: 'Copy files to artifact directory'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/build'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+  displayName: 'Publish artifact'
+
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'Free Trial(458ce45c-8806-423c-b4d3-951e64b8b0a0)'
@@ -22,3 +36,5 @@ steps:
     appName: 'Hairsalon'
     package: '$(Build.ArtifactStagingDirectory)/build'
     runtimeStack: 'NODE|18-lts'
+    resourceGroupName: 'RSGTest'
+    enableCustomDeployment: true
