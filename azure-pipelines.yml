@@ -29,11 +29,14 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
   displayName: 'Publish artifact'
+
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'Free Trial(458ce45c-8806-423c-b4d3-951e64b8b0a0)'
     appType: 'webAppLinux'
     appName: 'Hairsalon'
+    deployToSlotOrASE: true
+    resourceGroupName: 'RSGTest'
+    slotName: 'production'
     package: '$(Build.ArtifactStagingDirectory)/drop'
     runtimeStack: 'NODE|18-lts'
-    resourceGroupName: 'RSGTest'
