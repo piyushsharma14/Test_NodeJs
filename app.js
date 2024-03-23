@@ -24,6 +24,6 @@ app.use('*', (req, res) => {
 
 // Start the Express server
 const PORT = process.env.PORT || 3000; // Use the provided port or default to 3000
-app.listen(PORT, '0.0.0.0', () => {
+app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
