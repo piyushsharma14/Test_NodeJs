@@ -1,19 +1,24 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
-- master
+- main  # Change this to match your main branch name
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: NodeTool@0
+  inputs:
+    versionSpec: '14.x'  # Change this to match your Node.js version
+  displayName: 'Install Node.js'
 
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    npm install
+    npm run build
+  displayName: 'Install dependencies and build'
+
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Free Trial(458ce45c-8806-423c-b4d3-951e64b8b0a0)'
+    appType: 'webAppLinux'
+    appName: 'Hairsalon'
+    package: '$(Build.ArtifactStagingDirectory)/build'
+    runtimeStack: 'NODE|18-lts'
