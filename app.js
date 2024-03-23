@@ -22,8 +22,5 @@ app.use('*', (req, res) => {
   res.status(404).json({ error: 'Not Found' });
 });
 
-// Start the Express server
-const PORT = process.env.PORT || 3000; // Use the provided port or default to 3000
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+// Export the Express app
+module.exports = app;
