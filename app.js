@@ -22,7 +22,7 @@ app.use('*', (req, res) => {
   res.status(404).json({ error: 'Not Found' });
 });
 
-// Start the Express server
+// Set up the server to listen on a specific port
 const PORT = process.env.PORT || 3000; // Use the provided port or default to 3000
 app.listen(PORT,'192.168.0.108', () => {
   console.log(`Server is running on port ${PORT}`);
