@@ -17,20 +17,6 @@ steps:
     npm test
   displayName: 'Install dependencies '
 
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(Build.SourcesDirectory)'
-    Contents: '**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-  displayName: 'Copy files to artifact directory'
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/build'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
-  displayName: 'Publish artifact'
-
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'Free Trial(458ce45c-8806-423c-b4d3-951e64b8b0a0)'
