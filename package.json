@@ -7,11 +7,7 @@
     
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "build": "react-scripts build"
   },
-  "devDependencies": {
-    "react-scripts": "^5.0.0"
-  },  
   "author": "",
   "license": "ISC",
   "dependencies": {
