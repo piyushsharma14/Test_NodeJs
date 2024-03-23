@@ -1,20 +1,17 @@
 {
-  "name": "your-project-name",
+  "name": "test_nodejs",
   "version": "1.0.0",
-  "description": "Your project description",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js", // Assuming index.js is your entry point
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "echo \"Node.js projects typically don't have a build step\""
-  },
-  "keywords": [],
+ },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    // Your dependencies here
-  },
-  "devDependencies": {
-    // Your dev dependencies here
+    "express": "^4.19.1",
+    "nodemon": "^3.1.0"
   }
 }
