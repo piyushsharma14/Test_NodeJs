@@ -16,6 +16,7 @@ steps:
     npm install
     npm test
   displayName: 'Install dependencies '
+
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)'
@@ -23,18 +24,11 @@ steps:
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
   displayName: 'Copy files to artifact directory'
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
-  displayName: 'Publish artifact'
-
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'Free Trial(458ce45c-8806-423c-b4d3-951e64b8b0a0)'
     appType: 'webAppLinux'
     appName: 'Hairsalon'
-    package: '$(System.DefaultWorkingDirectory)/drop/'
-    runtimeStack: 'NODE|18-lts'
-    startUpCommand: 'node app.js'
+    package: '$(Build.ArtifactStagingDirectory)'  # Deploy from the artifact staging directory
+    runtimeStack: 'NODE|14.x'
+    startUpCommand: 'node app.js'  # Adjust this according to your application's entry point
