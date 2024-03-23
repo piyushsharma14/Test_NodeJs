@@ -22,8 +22,8 @@ app.use('*', (req, res) => {
   res.status(404).json({ error: 'Not Found' });
 });
 
-// Set up the server to listen on a specific port
-const PORT = process.env.PORT || 3000; // Use the provided port or default to 3000
-app.listen(PORT,'192.168.0.108', () => {
+// Start the Express server
+const PORT = process.env.PORT; // Use the provided port or default to 3000
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on port ${PORT}`);
 });
