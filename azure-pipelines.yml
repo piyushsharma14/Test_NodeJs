@@ -40,4 +40,3 @@ steps:
     slotName: 'production'
     package: '$(Build.ArtifactStagingDirectory)'
     runtimeStack: 'NODE|18.x'
-    startUpCommand: 'npm start'
