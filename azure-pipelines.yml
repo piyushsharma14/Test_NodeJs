@@ -35,6 +35,6 @@ steps:
     azureSubscription: 'Free Trial(458ce45c-8806-423c-b4d3-951e64b8b0a0)'
     appType: 'webAppLinux'
     appName: 'Hairsalon'
-    package: '$(Build.ArtifactStagingDirectory)/drop'
+    package: '$(Build.ArtifactStagingDirectory)/drop/**'
     runtimeStack: 'NODE|18.x'
     startUpCommand: 'npm start'
