@@ -9,7 +9,6 @@ app.get('/api/hello', (req, res) => {
   // Send a JSON response with a greeting message
   res.json({ message: 'Hello from the server!' });
 });
-
 // Define a route for handling HTTP POST requests
 app.post('/api/data', (req, res) => {
   // Process the incoming data
