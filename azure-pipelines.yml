@@ -32,9 +32,12 @@ steps:
 
 - task: AzureWebApp@1
   inputs:
-    azureSubscription: 'Free Trial(458ce45c-8806-423c-b4d3-951e64b8b0a0)'
+    azureSubscription: 'Free Trial(1)(458ce45c-8806-423c-b4d3-951e64b8b0a0)'
     appType: 'webAppLinux'
     appName: 'Hairsalon'
+    deployToSlotOrASE: true
+    resourceGroupName: 'RSGTest'
+    slotName: 'production'
     package: '$(Build.ArtifactStagingDirectory)'
     runtimeStack: 'NODE|18.x'
     startUpCommand: 'npm start'
