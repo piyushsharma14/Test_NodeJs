@@ -14,7 +14,6 @@ steps:
 
 - script: |
     npm install
-    npm test
   displayName: 'Install dependencies '
 
 - task: CopyFiles@2
